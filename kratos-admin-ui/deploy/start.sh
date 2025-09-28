@@ -1,13 +1,3 @@
-if [ -z ${NAMESERVER+x} ]; then
-    if [ -f /etc/resolv.conf ]; then
-        export NAMESERVER=$(awk '/^nameserver/{print $2}' /etc/resolv.conf)
-    else
-        # see https://www.emmanuelgautier.com/blog/nginx-docker-dns-resolution
-        export NAMESERVER="127.0.0.11"
-    fi
-fi
-
-echo "Nameserver is: $NAMESERVER"
 
 checkFormat() {
     regex="http?(s)://"
